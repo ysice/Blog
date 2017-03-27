@@ -1,0 +1,12 @@
+China:
+    北京 010
+    广州 020
+    http://www.baidu.com 111
+Japan:
+    东京 008143
+    千叶 0081423
+    ...(省略)
+XXX XXX:
+    yyy 11111
+    yyx 11112
+    ...

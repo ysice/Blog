@@ -1,0 +1,72 @@
+{% extends "theme/base.html" %}
+{% block title %}Essay/归档{% endblock %}
+{% block description %}文章归档,List of essay {% endblock %}
+{% block keywords %}文章归档,essay,posts{% endblock %}
+{% block main %}
+    {% include "theme/header.html" %}
+    <div id="container">
+        <div class="content clearfix">
+            Total Essay:{{ postnum }}。继续加油。
+            <section class="archives">
+                {% for post in posts %}
+                    {% if not post.secret %}
+                    <h4 class="downarch">
+                        <a>{{ post.title }}</a>
+                    </h4>
+                    <ul class="hidearch posts-list">
+                        <li class="archiveli">Tags:
+                             {% for i in post.tags.strip().split() %}
+                            #<a href="/tags/{{ i }}">{{ i }}</a>
+                            {% endfor %}
+                            written on {{ post.date }} by {{ post.author }} </li>
+                        <li class="archiveli">Summary:  {{ post.summary }}</li>
+                        <li class="archiveli"><a href="{{ url_for('post_single', name=post.path.replace('posts/', '')) }}" rel="bookmark"  target="_blank">Read it</a></li>
+                    </ul>
+                    {% else %}
+                        <h4 class="downarch">
+                        <a><!--{{ post.title }}-->隐私保护ing</a>
+                        </h4>
+                        <ul class="hidearch posts-list">
+                            <li class="archiveli">
+                                <form method="post" action="">
+                                    {{ form.csrf_token }}
+                                    {{ form.password.label }} {{ form.password(size=20) }}
+                                    <input type="submit" value="Go">
+                                </form>
+                                 {% for msg in get_flashed_messages() %}
+                                    <div><!--{{ msg }}--></div>
+                                     {% if info == 'true' %}
+                                        <div>
+                                            <a href="{{ url_for('post_single', name=post.path.replace('posts/', '')) }}" rel="bookmark"  target="_blank">{{ post.title }}</a>
+                                        </div>
+                                     {% elif info == 'error' %}
+                                         <div>
+                                            <a href="#">deny</a>
+                                         </div>
+                                     {% else %}
+                                         6666666666666,没有什么卵用
+                                     {% endif %}
+                                 {% endfor %}
+                            </li>
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </section>
+
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(document).ready(function() {
+            $(".archives ul.hidearch").hide();
+            $(".archives h4.downarch").click(function() {
+                $(this).next().slideToggle('fast');
+                return false;
+            });
+        });
+    })
+    </script>
+{% endblock %}

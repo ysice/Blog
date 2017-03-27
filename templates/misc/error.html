@@ -1,0 +1,21 @@
+{% extends "theme/base.html" %}
+    {% block title %}未知的世界之{{ error }}{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/static/css/error.css" />
+{% endblock %}
+{% block main %}
+    <div class="page">
+      <div class="error error-wide">
+        <div class="header">
+          <a href="/" id="page_logo" class="fl">
+            <img src="/static/img/avatar.png"  alt="{{ error }}">
+          </a>
+          <strong class="mute">未知的世界之{{ error }}</strong>
+        </div>
+        <div class="content">
+          <p class="single">服务器提了一个问题，但是管理员不知道啊...</p>
+        </div>
+      </div>
+    </div>
+{% endblock %}

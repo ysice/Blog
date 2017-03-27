@@ -1,0 +1,38 @@
+{% extends "theme/base.html" %}
+{% block title %}Think me{% endblock %}
+{% block description %}由于该网站的ysbot存在限制指令，系统无法提供该页面的内容描述{% endblock %}
+{% block main %}
+    {% include "theme/header.html" %}
+    <div id="container">
+        <div class="content clearfix">
+            <article>
+                <h2 class="content-title">About / 关于</h2>
+                <p>
+                    <span id="about-1">当你的才华撑不起你的野心时，就要静心去多读书！</span>
+                <h2 class="content-title">技能[树]</h2>
+                <ul>
+                    <li>喜欢开源，热衷Linux，尤其Debian系列</li>
+                    <li>语言:学习C语言从入门到放弃，目前深入学习Python中...</li>
+                    <li>想从事运维事业,接触运维那些事，也是本博客的使命,加油</li>
+                    <li>英语,学习短板,阅读相关专业文档还可以。</li>
+                </ul>
+                <h2 class="content-title">Find me</h2>
+                <ul>
+                <li><a href="https://twitter.com/ysicing">[twitter@YsiCing]</a></li>
+                <li><a href="http://weibo.com/caibaodoge">[Weibo@小小萝卜腿呀]</a></li>
+                <li><a href="https://github.com/ysicing">[Github@ysicing]</a> </li>
+                    <li>
+                    <code>echo 'b3BzLnlzaWNpbmdAZ21haWwuY29t' | base64 -d</code></li>
+                <li>
+                    <code>echo 'cm9vdEB5c2ljaW5nLm5ldA==' | base64 -d</code>
+                </li>
+                    </ul>
+                <br />
+                <h2 class="content-title">MISC</h2>
+                <p>
+                    本博客记录自己学习历程。
+                </p>
+            </article>
+            <br />
+        </div>
+{% endblock %}

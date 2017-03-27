@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>推荐</title>
+</head>
+<body>
+    {% if 'iPad' not  in visinfo().get('user_agent') %}
+        {% if 'iPhone' not  in visinfo().get('user_agent') %}
+            {% if 'Android' not  in visinfo().get('user_agent') %}
+                888888888888888
+            {% else %}
+                xxxx{{ visinfo().get('user_agent') }}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+</body>
+</html>

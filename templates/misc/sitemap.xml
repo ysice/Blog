@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>{{ BASE_URL }}/</loc>
+        <lastmod>{{ today }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>{{ BASE_URL }}/links/</loc>
+        <lastmod>{{ recently }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>{{ BASE_URL }}/about/</loc>
+        <lastmod>{{ recently }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>{{ BASE_URL }}/tags/all</loc>
+        <lastmod>{{ recently }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>{{ BASE_URL }}/guestbook/</loc>
+        <lastmod>{{ recently }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>{{ BASE_URL }}/lab/</loc>
+        <lastmod>{{ recently }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>{{ BASE_URL }}/posts/</loc>
+        <lastmod>{{ recently }}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+    <!-- all tags -->
+
+    <!-- all pages -->
+    {%- for post in posts %}
+        {%- if not post.secret %}
+    <url>
+        <loc>{{ BASE_URL }}{{ url_for('post_single', name=post.path.replace('posts/', '')) }}</loc>
+        <lastmod>{{ post.date }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1</priority>
+    </url>
+        {%- endif %}
+    {%- endfor %}
+</urlset>

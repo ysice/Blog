@@ -1,0 +1,11 @@
+<!--评论666 -->
+{% if 'iPad' not  in visinfo().get('user_agent') %}
+        {% if 'iPhone' not  in visinfo().get('user_agent') %}
+            {% if 'Android' not  in visinfo().get('user_agent') %}
+                <div id="toc"></div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+
+<div id="ds-thread" class="ds-thread" data-thread-key="{{ url_for('post_single', name=post.path.replace('posts/', '')) }}" data-title="{{ post.title }}" data-url="{{ BASE_URL }}{{ url_for('post_single', name=post.path.replace('posts/', '')) }}"></div>

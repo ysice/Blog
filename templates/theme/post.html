@@ -1,0 +1,159 @@
+{% extends 'theme/base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block description %}{{ post.summary }}{%   endblock %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="/static/plugins/toc/toc.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="/static/plugins/share.js/dist/css/share.min.css" />
+    <!--<link rel="stylesheet" type="text/css" href="https://ysicing.net/static/css/nb.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="/static/plugins/menu/mmenu.all.css" />-->
+{% endblock %}
+{% block main %}
+    {% include 'theme/header.html' %}
+
+<main id="main" class="main">
+  <div class="main-inner">
+    <div id="content" class="content">
+        <div id="posts" class="posts-expand">
+            <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+              <header class="post-header">
+
+                  <h1 class="post-title" itemprop="name headline">
+                     {{ post.title }}
+                 </h1>
+                     <span class="post-time">
+                        发表于
+                        <time datetime="{{ post.date }}" itemprop="datePublished">{{ post.date }}</time>
+                    </span>
+                  <!--
+                    <span class="post-category" >
+                      &nbsp; | &nbsp; 其他
+
+                      <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                       XXXX
+                   </span>
+               </span>
+
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                评论
+       </span>
+-->
+      </div>
+  </header>
+
+  <div class="post-body">
+
+
+    <span itemprop="articleBody">
+        {{ post.html | safe }}
+    </span>
+
+</div>
+
+<footer class="post-footer">
+
+    <div class="post-tags">
+        Tags:
+        {% for tag in post.tags.split() %}
+            <a href="/tags/{{ tag|lower }}"> #{{ tag|lower }} </a>
+        {% endfor %}
+    </div>
+<hr />
+    <div class="post-nav">
+    <div id="share-1"></div>
+    <div class="post-nav-prev post-nav-item">
+        <!--上一篇-->
+    </div>
+    <div class="post-nav-next post-nav-item">
+        <!--下一篇-->
+    </div>
+
+</div>
+</footer>
+</article>
+</div>
+</div>
+ {% include 'theme/comment.html' %}
+</div>
+{% include 'theme/sidebar.html' %}
+</main>
+{% include 'theme/footer.html' %}
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script type="text/javascript" src="/static/plugins/toc/toc.min.js"></script>
+    <script type="text/javascript" src="/static/plugins/sidebar/sidebar.js"></script>
+    <script type="text/javascript" src="/static/plugins/duoshuo/ds.js"></script>
+     <script type="text/javascript" src="/static/plugins/share.js/dist/js/jquery.share.min.js"></script>
+    <!--<script type="text/javascript" src="/static/plugins/menu/mmenu.min.js"></script>-->
+
+    <script>
+        $('#toc').toc({
+    'selectors': 'h2', //elements to use as headings
+    'container': 'body', //element to find all selectors in
+    'smoothScrolling': true, //enable or disable smooth scrolling on click
+    'prefix': 'toc', //prefix for anchor tags and class names
+    'onHighlight': function(el) {}, //called when a new section is highlighted
+    'highlightOnScroll': true, //add class to heading that is currently in focus
+    'highlightOffset': 100, //offset to trigger the next headline
+    'anchorName': function(i, heading, prefix) { //custom function for anchor name
+        return prefix+i;
+    },
+    'headerText': function(i, heading, $heading) { //custom function building the header-item text
+        return $heading.text();
+    },
+'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
+  return $heading[0].tagName.toLowerCase();
+}
+});
+    /*$(function() {
+                $('#sucaihuo').simplerSidebar({
+                    opener: '#toggle-sidebar',
+                    sidebar: {
+                        align: 'left',
+                        width: 250
+                    }
+                });
+            });*/
+    </script>
+     <script>
+    $('#share-1').share({sites: ['qzone', 'qq', 'weibo','wechat','google','twitter']});
+    jQuery(document).ready(function($) {
+        $(document).ready(function() {
+            $(".blog-comm span.hidearch").hide();
+            $(".blog-comm p.downarch").click(function() {
+                $(this).next().slideToggle('fast');
+                return false;
+            });
+        });
+    })
+    </script>
+    <script type="text/javascript">// <![CDATA[
+        $( function () {
+            var speed = 1000;//自定义滚动速度
+            //回到顶部
+            $( "#toTop").click( function () {
+                $( "html,body").animate({ "scrollTop" : 0 }, speed);
+                });
+            //回到底部
+            var windowHeight = parseInt($("body").css("height" ));//整个页面的高度
+            $( "#toBottom").click(function () {
+                $( "html,body").animate({ "scrollTop" : windowHeight }, speed);
+            });
+            //跳转评论
+            $( "#tocomment").click(function () {
+                window.location.hash="#ds-thread";
+            });
+        });
+
+// ]]></script>
+
+<script type="text/javascript">
+	/*		$(function() {
+				$('nav#menu').mmenu();
+			});*/
+		</script>
+{% endblock %}

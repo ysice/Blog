@@ -1,0 +1,17 @@
+{% extends "theme/base.html" %}
+{% block main %}
+    <h2>Recent Notes </h2>
+    <ul>
+        {% for i in range(postnum) %}
+            <li>
+                <span>{{ new_posts[i].date }}</span> &raquo;
+                {% if not new_posts[i].secret %}
+                <a href="{{ url_for('post_single', name=new_posts[i].path.replace('posts/','')) }}" target="_blank">{{ new_posts[i].title }}</a>
+                {% else %}
+                <a href="/api/admin">隐私保护ing</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}

@@ -1,0 +1,11 @@
+Flask==0.11.1
+Werkzeug==0.11.11
+Jinja2==2.8
+itsdangerous==0.24
+Frozen-Flask==0.12
+Markdown==2.6.7
+PyYAML==3.12
+Flask-FlatPages==0.6
+flask-moment==0.5.1
+flask-wtf==0.12
+psutil==4.3.1

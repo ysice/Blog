@@ -1,0 +1,126 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+body {
+	font-size:14px;
+	font:400 16px/1.62 Georgia,"Xin Gothic","Hiragino Sans GB","Droid Sans Fallback","Microsoft YaHei",sans-serif;font-family: 'PT serif',微軟正黑體,微软雅黑,华文细黑,Microsoft Yahei,Hiragino Sans GB,sans-serif;
+	color:#D0CCCC;
+	overflow:hidden;
+	text-shadow: 0px 0px 1px rgba(24, 22, 22, 0.35);
+	background-color: #000;
+}
+
+.willerce {
+   text-align: center;
+   max-width: 380px;
+   animation: fade-in;
+   animation-duration: 1s;
+   -webkit-animation: fade-in 1s;
+   margin: 10% auto auto;
+   padding: 10px 10px;
+}
+
+h1 {
+	font-size:26px;
+}
+
+.avatar {
+	margin-bottom:35px;
+	border-radius:64px;
+	box-shadow:0 1px 2px rgba(0,0,0,0.5);
+}
+
+.nav a {
+	padding:0 6px;
+}
+
+40% {
+	opacity:0;
+}
+
+100% {
+	opacity:1;
+}
+
+#head
+{
+    width: 128px;
+    margin: 20px 0;
+    background-size: cover;
+    border-radius: 200px;
+    box-shadow: 0px 0px 37px rgba(255, 255, 255, 0.56);
+    border: 5px solid rgba(255, 255, 255, 0.31);
+    text-align: center;
+    font-family: "YaHei Consolas Hybrid","Consolas","微软雅黑","Segoe UI",Arial,"Times New Roman";
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.8;
+}
+img#logo {
+    width: 128px;
+    background-size: cover;
+    border-radius: 200px;
+    box-shadow: 0px 0px 40px rgb(255, 255, 255);
+    border: 3px solid rgba(255, 255, 255, 0.61);
+    opacity: 0.8;
+    margin: 0 auto;
+    margin-top: 20px;
+	margin-bottom: 20px;
+	transition: all 1.0s;
+}
+#logo:hover {
+    box-shadow: 0 0 10px #fff;
+    -webkit-box-shadow: 0 0 19px #fff;
+    transform:rotate(360deg);
+    -ms-transform:rotate(360deg); 	/* IE 9 */
+    -moz-transform:rotate(360deg); 	/* Firefox */
+    -webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+    -o-transform:rotate(360deg); 	/* Opera */
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+.anniu {
+  color: #3F3F3F99;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.12);
+  padding: 5px 9px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.anniu:hover {
+    color: #FFFFFFE6;
+    background-color: rgba(255, 255, 255, 0.06);
+    transition: all 350ms;
+}
+a {
+    margin: 0 auto;
+    line-height: 48px;
+    text-align: center;
+	text-decoration: none;
+}
+
+a:link,
+a:visited {
+color:#D0CCCC;
+text-decoration:none;
+}
+a:hover,
+a:active {
+color:#fff;
+text-decoration:none;
+}
+
+.copyright {
+    bottom: 0;
+    cursor: default;
+    height: 6em;
+    left: 0;
+	font-size:12px;
+    line-height: 8em;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}

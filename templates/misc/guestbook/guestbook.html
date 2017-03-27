@@ -1,0 +1,14 @@
+{% extends "theme/base.html" %}
+{% block title %}吐槽* *{% endblock %}
+{% block main %}
+    {% include "theme/header.html" %}
+    <div class="tc">
+        如果有啥不足之处,可以尽情吐槽,但不(bu)一(ke)定(neng)理(de)会(he)!!!<br />
+    </div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="/guestbook/" data-title="吐槽" data-url="/guestbook/">
+    </div>
+{% endblock %}
+{% block scripts %}
+    {{  super() }}
+    <script type="text/javascript" src="/static/plugins/duoshuo/ds.js"></script>
+{% endblock %}

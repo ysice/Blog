@@ -1,0 +1,45 @@
+{% extends "theme/base.html" %}
+{% block title %}Home{% endblock %}
+{% block meta %}
+    <meta name="google-site-verification" content="eGb9E4P5ztpwdTmWXlaXBaIiPX7P7DseIUM6mBhCbSM" />
+	<meta name="msvalidate.01" content="C77B93E43E4B5EC895A210DFCE219A3B" />
+    <meta name="baidu-site-verification" content="SaKVuuwk17" />
+	<meta name="360_union_verify" content="3213c63d5a8fc7e923513c1f17db7056" />
+	<meta name="sogou_site_verification" content="1cyN7LNeyg" />
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+{% endblock %}
+{% block main %}
+<div class="willerce">
+    <div>
+     <a href="/devops/"><img src="/static/img/avatar.jpg" id="logo" title="YsiCing's Notes"></a>
+       <h1 id="ops">运维笔记</h1>
+	 	 <p>当你的才华撑不起你的野心时，就要静心去多读书！</p>
+    </div>
+    <div>
+        <a class="anniu" href="/lab/">折腾</a>
+     <a class="anniu" href="/tags/all">标签</a>
+     <a class="anniu" href="/posts/">归档</a>
+     <a class="anniu" href="/about">关于</a>
+	 <a class="anniu" href="/links">邻居</a>
+     <a class="anniu" href="/guestbook/">留言</a>
+     <span class="copyright">© 2014-2016<a href="https://ysicing.net"> Ops Notes</a> | 吉ICP备15001686号</span></div>
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
+    <script>
+        $('#ops').on('click',function(){
+            layer.open({
+              type: 2,
+              title: '送上最新文章,打个酱油',
+              shadeClose: true,
+              shade: false,
+              maxmin: true, //开启最大化最小化按钮
+              area: ['893px', '600px'],
+              content: '/api/recent_new'
+            });
+
+        });
+    </script>
+{% endblock %}

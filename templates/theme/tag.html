@@ -1,0 +1,43 @@
+{% extends "theme/base.html" %}
+{% block title %}
+     {% if tags in ikey %}
+        所有标签
+    {% elif tags not in ikey %}
+        标签：{{ tags }}
+    {% elif tags in sectag %}
+         Deny by
+    {% endif %}
+{% endblock %}
+{% block description %}Tags标签页{% endblock %}
+{% block keywords %}{{ tags }},Ops Notes{% endblock %}
+{% block main %}
+    {% include "theme/header.html" %}
+    <div id="container">
+        <div class="content clearfix">
+            {% if tags in ikey %}
+                <h3>所有标签</h3>
+                <section class="group-tags">
+                    <ul class="tag-box">
+                      {% for (name,count) in mbkey.iteritems() %}
+                          {% if name  not in sectag %}
+                        <li><a href="/tags/{{ name }}">{{ name }} <span>{{ count }}</span></a> </li>
+                          {% endif %}
+                      {% endfor %}
+                    </ul>
+                </section>
+
+            {% elif tags not in ikey and tags not in sectag %}
+                 <h3>标签:{{ tags }}[{{ mbkey[tags] }}]</h3>
+                 <section>
+                    <ul class="posts-list">
+                        {% for post in posts %}
+                             {% if tags in post.tags.lower() %}
+                                  <li>{{ post.date }}<span> » </span> <a href="{{ url_for('post_single', name=post.path.replace('posts/', '')) }}" title="{{ post.title }} By {{ post.author }}" target="_blank">{{ post.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                 </section>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

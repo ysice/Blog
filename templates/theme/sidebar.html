@@ -1,0 +1,23 @@
+
+
+{% if 'iPad' not  in visinfo().get('user_agent') %}
+        {% if 'iPhone' not  in visinfo().get('user_agent') %}
+            {% if 'Android' not  in visinfo().get('user_agent') %}
+                <div id="scroll">
+                    <div class="scrollItem">
+                       <a class="log-button" title="文章目录"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <div id="toTop" class="scrollItem">
+                        <i class="fa fa-hand-o-up" title="返回顶部"></i>
+                    </div>
+                    <div id="tocomment" class="scrollItem">
+                        <i class="fa fa-comments" title="来吐槽吧"></i>
+                    </div>
+                    <div id="toBottom" class="scrollItem">
+                        <i class="fa fa-hand-o-down" title="去往底部"></i>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+

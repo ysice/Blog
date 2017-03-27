@@ -1,0 +1,9 @@
+User-agent: *
+Disallow:
+Disallow: /api
+Disallow: /love/
+Disallow: /admin/
+Disallow: /ops/
+Disallow: /devops/
+
+Sitemap: https://ysicing.net/sitemap.xml

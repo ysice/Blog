@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=9;IE=8;IE=7" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>{% block title %}YsiCing's Blog{% endblock %} - Ops Notes</title>
+    <meta name="description" content="{% block description %}YsiCing自留地，专注于Python与Sec，记录运维世界的美妙{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}ops，linux，ysicing，ctf，docker, python，运维 {% endblock %}">
+    <meta name="author" content="{% block author %}ysicing{% endblock %}">
+    {% block meta %}{% endblock %}
+    {% block styles %}
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/static/plugins/duoshuo/ds.css" />
+    {% endblock %}
+
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico') }}" type="image/x-icon">
+    <link href="/sitemap.xml" rel="alternate" type="application/atom+xml">
+</head>
+<body>
+{% block main %}
+
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/z-t.js"></script>
+    <script type="text/javascript" src="/static/plugins/layer/layer.js"></script>
+    <script type="text/javascript" src="/static/plugins/duoshuo/kaomoji.js"></script>
+{% endblock %}
+</body>
+</html>
