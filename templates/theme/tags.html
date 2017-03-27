@@ -1,0 +1,43 @@
+{% extends "theme/base.html" %}
+{% block title %}
+     {% if tags in ikey %}
+        所有标签
+    {% elif tags not in ikey %}
+        标签：{{ tags }}
+    {% endif %}
+{% endblock %}
+{% block description %}Tags标签页{% endblock %}
+{% block keywords %}{{ tags }},Ops Notes{% endblock %}
+{% block main %}
+    <div id="container">
+        <div class="content clearfix">
+            {% if tags in ikey %}
+                <h3>所有标签</h3>
+                <section class="group-tags">
+                    <ul class="tag-box">
+                      {% for (name,count) in mbkey.iteritems() %}
+                        <li><a href="/tags/{{ name }}">{{ name }} <span>{{ count }}</span></a> </li>
+                      {% endfor %}
+                    </ul>
+                </section>
+					
+            {% elif tags not in ikey %}
+                 <h3>标签:{{ tags }}[{{ mbkey[tags] }}]</h3>
+                 <section>
+                    <ul class="posts-list">
+                        {% for post in posts %}
+                             {% if post.tags.lower() == tags %}
+                                  <li>{{ post.date }}<span>-</span> <a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}" title="{{ post.title }} By {{ post.author }}" target="_blank">{{ post.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                 </section>
+            {% endif %}
+        </div>
+        <footer id="footer" class="top-box clearfix">
+        &copy; 2014-2016  | <a href="/posts/log" title="By YsiCng">YsiCing's Ops Note</a> Powered by
+        <a href="https://github.com/SerhoLiu/serholiu.com"> MiniAkio</a> && <a href="http://flask.pocoo.org/">Flask</a> .
+        <a href="javascript:scroll(0,0)" class="to-top">TOP</a>
+        </footer>
+    </div>
+{% endblock %}

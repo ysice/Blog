@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}YsiCing's Blog{% endblock %} - Ops Notes</title>
+    <meta name="description" content="{% block description %}YsiCing自留地，专注于Python与Sec，记录运维世界的美妙{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}ops，linux，ysicing，ctf，python，运维 {% endblock %}">
+    <meta name="author" content="{% block author %}ysicing{% endblock %}">
+{% block meta %}{% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="shortcut icon" href="{{ url_for('static',filename='favicon.ico') }}" type="image/x-icon">
+    <link href="/sitemap.xml" rel="alternate" type="application/atom+xml">
+   
+ {% block styles %}
+        <link href="/static/css/style.min.css" rel="stylesheet" type="text/css" media="all">
+
+    {% endblock %}
+  </head>
+  <body class="cbp-spmenu-push">
+{% block nb666 %}{% endblock %}
+    <img class="bg-image" src="/static/img/{{ get_num() }}.jpg" />
+    <header id="header" class="clearfix header-fixed-top">
+      <div class="nav">
+       {% include "theme/header.html" %}
+      </div>
+    </header>
+    {% block main %}
+
+    {% endblock %}
+  {% block script %}
+       <script type="text/javascript" src="/static/js/jquery.js"></script>
+        <script type="text/javascript" src="/static/plugin/layer/layer.js"></script>
+      <script type="text/javascript" src="/static/js/z-t.js"></script>
+	<script type="text/javascript" src="/static/js/mb.js"></script>
+  {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,24 @@
+/**
+ * Author:Smohan
+ * Version:1.0.1
+ * url: http://www.smohan.net/lab/smohan_share.html
+ * 使用请保留以上信息
+ */
+@charset "utf-8";
+*{margin:0;padding:0;}
+#SmohanShare-Wraper{width:auto;max-width:480px; padding:20px 20px 10px 20px; height:auto; overflow:hidden; position:fixed; top:50%;left:50%; background:#fff; border-radius:20px;}
+#SmohanShare-Wraper .t{line-height:30px; padding-bottom:15px; font:600 18px/30px "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Tahoma, Lucida, Verdana, STHeiti, SimSun, '宋体', sans-serif; position:relative; text-indent:8px; color:#79c627;}
+#SmohanShare-Wraper a.close{cursor:pointer;display:block; width:20px; height:20px; background:url(/static/img/share-icons.png) -270px 0 no-repeat; position:absolute; top:5px; right:15px; z-index:99; transition:all ease-in-out .36s;}
+#SmohanShare-Wraper a.close:hover{-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);-ms-transform:rotate(180deg); transform:rotate(180deg);}
+#SmohanShare-Wraper ul{margin:0 0 0 -2px; padding:0; list-style-type:none;}
+#SmohanShare-Wraper li{float:left; display:block; width:50px; height:50px;cursor:pointer; position:relative; margin:0 3px;}
+#SmohanShare-Wraper li a{display:block; width:28px; height:28px; margin-left:11px; margin-top:12px;transition:none; background:url(/static/img/share-icons.png) 0 0 no-repeat; text-indent:-9999em;}
+#SmohanShare-Wraper li span{display:block;width:40px;height:10px;background:url(/static/img/share-icons.png) -224px -2px no-repeat; position:absolute; left:5px; bottom:0px;}
+#SmohanShare-Wraper li a.share-sina{background-position:-28px 0;}
+#SmohanShare-Wraper li a.share-qzone{background-position:0 0;}
+#SmohanShare-Wraper li a.share-tq{background-position:-84px 0;}
+#SmohanShare-Wraper li a.share-renren{background-position:-56px 0;}
+#SmohanShare-Wraper li a.share-huaban{background-position:-112px 0;}
+#SmohanShare-Wraper li a.share-facebook{background-position:-168px 0;}
+#SmohanShare-Wraper li a.share-twitter{background-position:-140px 0;}
+#SmohanShare-Wraper li a.share-fav{background-position:-196px 0;}

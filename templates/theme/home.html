@@ -1,0 +1,43 @@
+{% extends "theme/base.html" %}
+{% block meta %}
+	<meta name="google-site-verification" content="eGb9E4P5ztpwdTmWXlaXBaIiPX7P7DseIUM6mBhCbSM" />
+	<meta name="msvalidate.01" content="C77B93E43E4B5EC895A210DFCE219A3B" />
+       <meta name="baidu-site-verification" content="SaKVuuwk17" />
+	<meta name="360_union_verify" content="3213c63d5a8fc7e923513c1f17db7056">
+	<meta name="sogou_site_verification" content="1cyN7LNeyg"/>
+{% endblock %}
+{% block main %}
+    <div id="home-container">
+      <div class="curtain">
+        <div class="avater">
+          <a href="/about-me">
+            <img src="/static/img/face.png"/>
+          </a>
+        </div>
+        <h2 id="yl">Recent Notes</h2>
+        <ul>
+            {% for i in range(postsnum) %}
+              <li>
+                <span>{{posts[i].date}}</span> &raquo;
+                <a href="{{ url_for('post', name=posts[i].path.replace('posts/', '')) }}">{{posts[i].title}}</a>
+              </li>
+            {% endfor %}
+            <li><span>All       </span> &raquo;
+                <a href="/posts/">文章归档 | Archives</a>
+            </li>
+        </ul>
+        <div class="footer">
+          &copy; 2014-2016 |  吉ICP备15001686号 |<a href="/posts/log" title="By YsiCIng">YsiCing's Ops Note</a>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+    <script>
+    $('#yl').on('click', function(){
+        layer.msg('尼玛，打个酱油,送上最新博文', {icon: 4});
+    });
+    </script>
+	
+{% endblock %}

@@ -1,0 +1,61 @@
+*{
+ margin: 0;
+    padding: 0;
+}
+body{
+    font: 16px/1.8 "Lato", "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", arial, sans-serif;
+    color: #333;
+}
+div,form,input{font-size:16px;margin:0;padding:0}
+a{color:#333
+}
+a:hover{color: #f0ad4e;}
+a:active{color:orange;}
+#top{color:#999;font-size:12px;padding:6px 10px;position:absolute;right:0;top:0}
+#top a{font-size:14px}
+
+#main{margin:25px auto 100px auto;padding:0 35px;width:530px}
+#main h1{margin-bottom:4px;text-align:center}
+#main h1 a img{border:none}
+#main ul{list-style-type:none;padding:0 0 0 45px;width:410px}
+#main ul li{float:left;margin-right:18px}
+#main ul li a.mr{color:#000;font-weight:bold}
+#search_form{clear:both;margin-left:15px;padding-top:4px}
+
+#keyword{
+border-color:#999 #ccc #ccc #999;
+border-style:solid;
+border-width:1px;
+float:left;
+font-size:18px;
+height:30px;
+line-height:30px;
+text-indent:10px;
+width:408px;
+}
+#main .search_btn{
+    border:none;
+    cursor:pointer;
+    float:left;
+    font-size:12px;
+    height:32px;
+    line-height:32px;
+    margin-left:6px;
+    width:195px;
+}
+#main .down_btn{}
+
+#main p{float:left;margin-top:35px;text-align:center;width:520px; }
+.quote{
+    text-align: center;
+    color: #666666;
+    font-size: 20px;
+}
+#cl{clear:both}
+#footer{margin:50px auto;width:600px}
+#footer p{font-size:16px;margin-bottom:15px;text-align:center}
+#footer p.jr{margin-bottom:5px}
+#footer p a{font-size:14px}
+#footer p.bq{color:#77c}
+#footer p.bq a{color:#77c}
+

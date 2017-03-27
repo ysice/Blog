@@ -1,0 +1,38 @@
+{% extends "theme/base.html" %}
+{% block title %}Ops专栏{% endblock %}
+{% block description %}运维专栏，记载从接触到入门的点点滴滴{% endblock %}
+{% block main %}
+
+    <div id="container">
+        <div class="content clearfix">
+            <h2 class="content-title">搜索功能</h2>
+		<input type="text" class="st-default-search-input" value="搜一下就会怀孕">
+		<hr />
+        </div>
+         <div class="content clearfix">
+            <h2 class="content-title">好东西传送门</h2>
+			{% include "theme/share_ops_blog.html" %}
+        </div>
+        <div class="content clearfix">
+            <h2 class="content-title">Ops Notes</h2>
+			{% include "theme/ops_notes.html" %}
+        </div>
+        <footer id="footer" class="top-box clearfix">
+        &copy; 2014-2016  | <a href="#" title="By YsiCng">运维专栏</a> Powered by
+        <a href="https://github.com/SerhoLiu/serholiu.com"> MiniAkio</a> && <a href="http://flask.pocoo.org/">Flask</a> .
+        <a href="javascript:scroll(0,0)" class="to-top">TOP</a>
+        </footer>
+    </div>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+	<script type="text/javascript">
+(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+_st('install','t8_taQFwC7y8XXo1z4kD','2.0.0');
+</script>
+            
+{% endblock %}

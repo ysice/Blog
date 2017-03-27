@@ -1,0 +1,61 @@
+{% extends "theme/base.html" %}
+{% block description %}友情链接，欢迎交换友情链接{% endblock %}
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="/static/css/font-awe.min.css">
+    <style>
+    </style>
+{% endblock %}
+{% block title %}
+    Links
+{% endblock %}
+{% block main %}
+    <div id="container">
+        <div class="content clearfix">
+                <h3>I Know</h3>
+                <section class="group-tags">
+                    <ul class="tag-box">
+                        <li><i class="fa fa-lock"></i><a href="//www.dickr.cn" target="_blank">Dick</a> </li>
+			 <li><i class="fa fa-lock"></i><a href="//www.onlypride.com" target="_blank">私想·思享</a> </li>
+                        <li><a href="http://www.honnycy.cn/" target="_blank">honnycy</a> </li>
+                        <li><a href="http://ans5.com/" target="_blank">ansfiv3</a> </li>
+                    </ul>
+                </section>
+                <h3>Good</h3>
+                <section class="group-tags">
+                    <ul class="tag-box">
+                        <li><i class="fa fa-lock"></i><a href="//www.unmz.net/" target="_blank">名哲[faritor]</a> </li>
+                        <li><a href="http://blog.iternull.com/" title="膜拜" target="_blank">IterNull</a></li>
+                        <li><a href="http://www.w3hacker.com/" title="膜拜" target="_blank">栈栈</a>
+                    </ul>
+                </section>
+                <h3>左邻右舍</h3>
+                <section class="group-tags">
+                    <ul class="tag-box">
+                        <li><i class="fa fa-lock"></i><a href="//185.es/" target="_blank">Dc3</a> </li>
+                        <li><a href="http://www.ihypo.net/" target="_blank">梦续代码[HypoChen]</a> </li>
+                        <li><i class="fa fa-lock"></i><a href="https://lc4t.me/" target="_blank">lc4t</a></li>
+                        <li><a href="http://www.moecao.com/" target="_blank">萌草酱</a></li>
+			<li><a href="http://www.xiaoxiaofeng.cn/" target="_blank">小小风</a></li>
+                    </ul>
+                </section>
+                <h3>收藏/MISC</h3>
+                <section class="group-tags">
+                    <ul class="tag-box">
+                        <li><a href="http://boke112.com/" target="_blank">boke112导航</a> </li>
+                        <li><a href="#">Demo</a> </li>
+                    </ul>
+                </section>
+                <h3>博客联盟</h3>
+                 <script type="text/javascript" src="https://api.zgboke.com/hutui.js"  id="zgboke-nav-js"></script>
+        </div>
+        <footer id="footer" class="top-box clearfix">
+        &copy; 2014-2016  | <a href="/posts/log" title="By YsiCng">YsiCing's Ops Note</a> Powered by
+        <a href="https://github.com/SerhoLiu/serholiu.com"> MiniAkio</a> && <a href="http://flask.pocoo.org/">Flask</a> .
+        <a href="javascript:scroll(0,0)" class="to-top">TOP</a>
+        </footer>
+    </div>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+{% endblock %}

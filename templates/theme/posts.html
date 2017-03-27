@@ -1,0 +1,42 @@
+{% extends "theme/base.html" %}
+{% block title %}Posts/Archives{% endblock %}
+{% block description %}posts list{% endblock %}
+{% block keywords %}Posts,notes{% endblock %}
+{% block styles %}
+    {{ super() }}
+    <style>
+
+    </style>
+{% endblock %}
+{% block main %}
+    <div id="container">
+        <div class="content clearfix">
+            <section class="archives">
+                {% for post in posts %}
+                    <h4 class="downarch">
+                        <a>{{ post.title }}</a>
+                    </h4>
+                    <ul class="hidearch posts-list">
+                        <li class="archiveli">Tags: <a href="/tags/{{ post.tags }}">{{ post.tags }}</a> written on {{ post.date }} by {{ post.author }} </li>
+                        <li class="archiveli">Summary:  {{ post.summary }}</li>
+                        <li class="archiveli"><a href="{{ url_for('post', name=post.path.replace('posts/', '')) }}" rel="bookmark"  target="_blank">Read it</a></li>
+                    </ul>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(document).ready(function() {
+            $(".archives ul.hidearch").hide();
+            $(".archives h4.downarch").click(function() {
+                $(this).next().slideToggle('fast');
+                return false;
+            });
+        });
+    })
+    </script>
+{% endblock %}

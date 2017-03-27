@@ -1,0 +1,13 @@
+{% extends "theme/base.html" %}
+{% block main %}
+    <div id="container">
+        <div class="content clearfix">
+            <hr />
+            Notice:{{ love_you }}
+            <form action="/api" method="post">
+                <p><input type="text" name="username" value="心爱的女孩">
+                <p><input type="submit" value="上帝模式">
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends "theme/base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block description %}{{ post.summary }}{% endblock %}
+{% block keywords %}{{ post.tags }},{{ post.author }},Ops Notes{% endblock %}
+{% block styles %}
+    {{ super() }}
+    <link type="text/css" rel="stylesheet" href="/static/css/pygments.css">
+    <link rel="stylesheet" href="/static/plugin/share.js/dist/css/share.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/nb.css">
+{% endblock %}
+{% block nb666 %}
+    {% include "theme/nb666.html" %}
+{% endblock %}
+{% block main %}
+    <div id="container">
+      <div class="content clearfix">
+          <article>
+              <h2>
+                  {{ post.title }}
+                  <small class="date-right">{{ post.date }}</small>
+              </h2>
+                    {{ post.html | safe }}
+          </article>
+          <div class="tag-list">Tags:
+              <a href="/tags/{{ post.tags|lower }}">#{{post.tags | lower }}</a>
+          </div>
+          <div class="blog-notice">Status:
+                        {% if post.update %}
+                            <time>last update {{ post.update }}</time>
+                        {% else %}
+                            <time>本文或许没有过期(
+                                {{ moment(post.date).fromTime(ptime) }}修改)
+                            </time>
+
+                        {% endif %}
+          </div>
+        <div id="share-1"></div>
+        <div class="blog-notice blog-comm">
+            <span id="showLeftPush">Comment</span>
+            <div id="disqus_thread"></div>
+        </div>
+      </div>
+        <footer id="footer" class="top-box clearfix">
+        &copy; 2014-<span>2016</span>  | <a href="/posts/log" title="By YsiCng">YsiCing's Ops Note</a> Powered by
+        <a href="https://github.com/SerhoLiu/serholiu.com"> MiniAkio</a> && <a href="http://flask.pocoo.org/">Flask</a> .
+        <a href="javascript:scroll(0,0)" class="to-top" id="showRightPush">TOP</a>
+
+      </footer>
+    </div>
+{% endblock %}
+{% block script %}
+    {{ super() }}
+
+    <script src="/static/js/mom-with-locales.min.js"></script>
+    <script>
+        moment.locale("zh-CN");
+        function flask_moment_render(elem) {
+            $(elem).text(eval('moment("' + $(elem).data('timestamp') + '").' + $(elem).data('format') + ';'));
+            $(elem).removeClass('flask-moment').show();
+        }
+        function flask_moment_render_all() {
+            $('.flask-moment').each(function() {
+                flask_moment_render(this);
+                if ($(this).data('refresh')) {
+                    (function(elem, interval) { setInterval(function() { flask_moment_render(elem) }, interval); })(this, $(this).data('refresh'));
+                }
+            })
+        }
+        $(document).ready(function() {
+            flask_moment_render_all();
+        });
+    </script>
+      <script type="text/javascript" src="/static/js/nb1.js"></script>
+    <script type="text/javascript" src="/static/js/nb.js"></script>
+    <script>
+        var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+                menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+                showRightPush = document.getElementById( 'showRightPush' ),
+				body = document.body;
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+            showRightPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toleft' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+				disableOther( 'showRightPush' );
+			};
+			function disableOther( button ) {
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+                if( button !== 'showRightPush' ) {
+					classie.toggle( showRightPush, 'disabled' );
+				}
+			}
+
+    </script>
+    <script type="text/javascript" src="/static/plugin/share.js/dist/js/jquery.share.min.js"></script>
+    <script type="text/javascript" src="/static/plugin/layer/extend/layer.ext.js"></script>
+    <script>
+            $('#info_share').on('click',function () {
+                     layer.open({
+                         type:2,
+                         title: 'Share 加载ing',
+                         closeBtn: 0,
+                         shade: [0],
+                         area:['300px','200px'],
+                         offset:'rb',
+                         time:2000,
+                         shift:2,
+                         skin:'layui-layer-noby',
+                         content:['/static/log/go.html','no'],
+                         end: function () {
+                             layer.open({
+                                 type:2,
+                                 title: 'Thank you for your sharing...',
+                                 shadeClose:true,
+                                 maxmin:true,
+                                 area:['893px','600px'],
+                                 content: '/static/log/share.html'
+                             });
+                         }
+                     });
+                 });
+            layer.photos({
+                photos:'#donatos'
+            });
+    </script>
+    <script>
+    $('#share-1').share({sites: ['qzone', 'qq', 'weibo','wechat','google','twitter']});
+    jQuery(document).ready(function($) {
+        $(document).ready(function() {
+            $(".blog-comm span.hidearch").hide();
+            $(".blog-comm p.downarch").click(function() {
+                $(this).next().slideToggle('fast');
+                return false;
+            });
+        });
+    })
+    </script>
+<script>
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//ysicing.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+{% endblock %}
+
