@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ blog_name() }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ blog_des() }}">
+    <meta name="keywords" content="{{ blog_key() }}">
+    <meta name="author" content="ysicing">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ request.script_root }}/static/img/favicon.ico">
+    <link rel="stylesheet" href="{{ request.script_root }}/static/home/home.css">
+</head>
+<body>
+  <div class="willerce">
+    <div>
+       <img src="{{ request.script_root }}/static/img/avatar.jpg" id="logo" title="{{ blog_name() }}"/>
+       <h1>{{ blog_name() }}</h1>
+	   <a>{{ blog_saying() }}</a>
+    </div>
+    <div class="menu">
+        <a class="anniu" href="{{ request.script_root }}/posts">Essay</a>
+        <a class="anniu" href="{{ request.script_root }}/tag/all">Tags</a>
+        <a class="anniu" href="{{ request.script_root }}/links">Links</a>
+        <a class="anniu" href="{{ request.script_root }}/lab">Lab</a>
+        <a class="anniu" href="{{ request.script_root }}/open">Open</a>
+        <a class="anniu" href="{{ request.script_root }}/about">About</a>
+	 </div>
+  </div>
+     <span class="copyright">&copy; 2014-2016 <a href="/">{{ blog_name() }}</a> | {{ blog_misc() }}</span>
+   </div>
+  </div>
+ <script src="{{ request.script_root }}/static/{{ blog_theme() }}/js/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="{{ request.script_root }}/static/home/lizi.js"></script>
+<canvas height="539" width="1440" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 0.5;" id="c_n9"></canvas>
+<!--
+从事任何技术研究，不知道该干什么的时候，就问自己四个问题：
+•这个方向上最新进展是什么？ 都知道吗？
+•这个方向上最著名的专家有哪些？他们的研究都看过吗？
+•这个方向上最著名的技术社区有哪些？精华帖都看过一遍吗？
+•这个方向上最重要的文章、工具有哪些？文章都看过吗？工具都分析过吗？
+By tombkeeper
+-->
+</body>
+</html>

@@ -1,0 +1,92 @@
+{% extends "base/base.html" %}
+{% block title%}{{ post.title }}{% endblock %}
+{% block styles %}
+{{ super() }}
+    <link rel="stylesheet" href="{{ request.script_root }}/static/plugins/prism/prism.css">
+{% endblock%}
+{% block content %}
+<div id="container">
+    <div class="page article-page">
+        <section id="content" class="article-content">
+            <article>
+                <div class="article-info-div">
+                    <div class="article-user-img-div float-left">
+                        <img src="{{ request.script_root }}/static/img/avatar.jpg">
+                    </div>
+                    <div class="vertical-line-div float-left">
+                        <div class="vertical-line"></div>
+                    </div>
+                    <div class="article-info float-left">
+                        <h3 class="article-title-h">
+                            <span class="shine-font-span"></span>
+                            <a href="#" data-pjax="true">{{ post.title }}</a>
+                        </h3>
+                        <div class="article-other-info">
+                            <span>
+                              <a class="article-author" data-pjax="true">{{ post.author }}</a>
+                            </span><span>
+                              <a class="article-comments-num ds-thread-count" data-thread-key="16" data-count-type="comments" data-pjax="true">0 Comments</a>
+                            </span><span>
+                              <a class="article-date">{{ post.date }}</a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="article-content-div">
+                    {{ post.html | safe }}
+                     <p style="text-align:center;">
+                        <!--copyright -->
+                         <!--<button>高亮</button>-->
+                     </p>
+                </div>
+                <div class="post-nav">
+                    <div>
+                        Tags:
+                        {% for tag in post.tags %}
+                            <a href="{{ url_for('blog.tag', tag=tag) }}">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <nav class="post-nav">
+
+                       <div>
+                           <span class="post-nav-prev-span">上一篇</span>
+                                {% if postinfo['pre'] != None %}
+                                    <a class="post-nav-a" href="{{ url_for('blog.post', name=postinfo['pre'].path.replace('posts/','')) }}" data-pjax="true">
+                                    {{ postinfo['pre'].title }}
+                                    </a>
+                               {% else %}
+                                    <a class="post-nav-a">当前最新文章</a>
+                               {% endif %}
+                       </div>
+
+
+                       <div>
+                           <span class="post-nav-next-span">下一篇</span>
+                          {% if postinfo['nex'] != None %}
+                                    <a class="post-nav-a" href="{{ url_for('blog.post', name=postinfo['nex'].path.replace('posts/','')) }}" data-pjax="true">
+                                    {{ postinfo['nex'].title }}
+                                    </a>
+                               {% else %}
+                                    <a class="post-nav-a">当前最新文章</a>
+                               {% endif %}
+                       </div>
+
+                    </nav>
+            </article>
+        </section>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<script>
+$(document).ready(function(){
+  //$("button").click(function(){
+    $("code").addClass("language-python");
+ // });
+}());
+</script>
+<script src="{{ request.script_root }}/static/plugins/prism/prism.js"></script>
+{% endblock %}

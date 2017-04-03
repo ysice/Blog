@@ -1,0 +1,14 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-10">
+        <h2>天道之眼</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="{{ url_for('admin.adminds') }}">仪表盘</a>
+            </li>
+            <li><a>监控系统</a></li>
+            <li class="active"><strong>{% if name=='system' %}系统监控{% elif name=='blog' %}博客监控{% elif name=='status' %}健康状态{% endif %}</strong></li>
+        </ol>
+    </div>
+    <div class="col-sm-2">
+    </div>
+</div>

@@ -1,0 +1,74 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+      <div class="page">
+          <section id="content" class="page-content">
+            <ul class="article-ul" id="article-ul">
+              <!--文章列表-->
+              {% for post in posts %}
+              <li class="article-li">
+                <article>
+                  <div class="article-info-div">
+                    <div class="article-user-img-div float-left">
+                      <img src="{{ request.script_root }}/static/img/avatar.jpg">
+                    </div>
+                    <div class="vertical-line-div float-left">
+                      <div class="vertical-line"></div>
+                    </div>
+                    <div class="article-info float-left">
+                      <h3 class="article-title-h">
+                        <span class="shine-font-span"></span>
+                        <a href="{{ url_for('blog.post', name=post.path.replace('posts/','')) }}" data-pjax="true">{{ post.title }}</a>
+                      </h3>
+                      <div class="article-other-info">
+                        <span>
+                          <a class="article-author">{{ post.author }}</a>
+                        </span><span>
+                          <a class="article-comments-num disqus-comment-count" data-disqus-url="#" href="#" data-pjax="true">0 Comments</a>
+                        </span><span>
+                          <a class="article-date">{{ post.date }}</a>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  {% if post.img %}
+                  <div class="article-img-div">
+                    <img src="/proxy/{{ post.img }}">
+                  </div>
+                  {% endif %}
+                  <div class="article-summary-div">
+                    <a href="#" data-pjax="true">
+                      <p class="article-summary-p">{{ post.summary }}</p>
+                    </a>
+                  </div>
+                  <div class="article-tags-div">
+                    <a href="{{ url_for('blog.post', name=post.path.replace('posts/','')) }}">More</a>
+                  </div>
+                  <div class="horizontal-line-div">
+                    <div class="vertical-line"></div>
+                  </div>
+                </article>
+              </li>
+              {% else %}
+              <li class="article-li">
+                No thing.
+              </li>
+              {% endfor %}
+            </ul>
+              <!--more 10-->
+              {% if (posts | length) == 10 %}
+              <div class="load-more-btn-div">
+              <div class="load-more-btn-div-cnt" id="load-more-btn-div-cnt">
+                <span class="lode-more-shine load-more-shine-left"></span>
+                <span class="load-line"></span>
+                <a class="load-more-a" id="load-more-a">More</a>
+                <span class="load-line"></span>
+                <span class="lode-more-shine load-more-shine-right"></span>
+              </div>
+                {% include "base/loading.html" %}
+              </div>
+                {% endif %}
+          </section>
+      </div>
+{% endblock %}

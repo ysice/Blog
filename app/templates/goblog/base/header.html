@@ -1,0 +1,69 @@
+<header class="head-main">
+  <div class="head_logo_div" id="head_logo_div">
+    <a href="/">
+      <img class="head_logo" id="head_logo" src="/static/img/avatar.jpg">
+    </a>
+    <div class="motto motto-l"><h5>千里之行</h5></div>
+    <div class="motto motto-r"><h5>始于足下</h5></div>
+  </div>
+
+  <div class="head_nav_div" id="head_nav_div">
+      <nav class="head_nav">
+        <ul id="nav_ul">
+            <a href="/about">
+                <li class="nav_ul_li">About</li>
+            </a>
+			<a href="/links" data-pjax="true">
+				<li class="nav_ul_li">Friends</li>
+			</a>
+            <a href="/tucao" data-pjax="true">
+                <li class="nav_ul_li">Tucao</li>
+            </a>
+            <li class="nav_ul_li" style="cursor:not-allowed;">Search</li>
+            <a href="/">
+                <li class="nav_li_on nav_ul_li">Home</li>
+            </a>
+        </ul>
+     </nav>
+  </div>
+</header>
+
+<div class="loading-div">
+    <div class="progress-bar" id="progress-bar"></div>
+</div>
+
+<header class="mobile-head-main">
+    <div class="mobile-menu">
+        <a class="get-menu-icon" id="get-menu-icon"></a>
+        <h3 class="website-h3">{{ blog_name() }}</h3>
+        <a class="home-menu-icon" href="/"></a>
+    </div>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-head-logo-div">
+            <img class="mobile-head-logo" src="{{ request.script_root }}/static/img/avatar.jpg">
+            <h5 class="motto-h5">千里之行,始于足下</h5>
+        </div>
+
+        <div class="mobile-head-nav-div">
+            <nav class="mobile-head-nav">
+                <ul class="mobile-nav-ul">
+                    <a href="/">
+                        <li class="nav_li_on nav_ul_li">Home</li>
+                    </a>
+                    <li class="nav_ul_li" style="cursor:not-allowed;">Search</li>
+                    <a href="/tucao" data-pjax="true">
+                        <li class="nav_ul_li">Tucao</li>
+                    </a>
+                    <a href="/links" data-pjax="true">
+						<li class="nav_ul_li">Friends</li>
+					</a>
+                    <a href="/about">
+                        <li class="nav_ul_li">About</li>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</header>

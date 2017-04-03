@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ blog_name() }} {% block title %}{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ysicing" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <link rel="shortcut icon" href="{{ request.script_root }}/static/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ request.script_root }}/static/img/favicon.ico" type="image/x-icon">
+    <meta name="apple-mobile-app-capable" content="yes">
+    <meta name="apple-mobile-app-status-bar-style" content="black">
+    {% block styles %}
+    <link rel="stylesheet" href="{{ request.script_root }}/static/{{ blog_theme() }}/css/style.css">
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+{% include "base/header.html" %}
+{% endblock %}
+
+<div id="container">
+ {% block content %}{% endblock %}
+</div>
+
+
+{% block footer %}
+{% include "base/misc.html"%}
+{% include "base/footer.html" %}
+{% endblock%}
+{% block scripts %}
+    <script src="{{ request.script_root }}/static/{{ blog_theme() }}/js/jquery-2.1.4.min.js"></script>
+    <script src="{{ request.script_root }}/static/{{ blog_theme() }}/js/util.js"></script>
+    <script src="{{ request.script_root }}/static/{{ blog_theme() }}/js/index.js"></script>
+    <script src="{{ request.script_root }}/static/{{ blog_theme() }}/js/vendor/bootstrap.min.js"></script>
+    <script src="{{ request.script_root }}/static/{{ blog_theme() }}/js/jquery.pjax.js"></script>
+    <script src="{{ request.script_root }}/static/{{ blog_theme() }}/js/pjax-loading.js"></script>
+    <script src="{{ request.script_root }}/static/{{ blog_theme() }}/js/tagcanvas.min.js"></script>
+{% endblock %}
+</body>
+</html>

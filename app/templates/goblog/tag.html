@@ -1,0 +1,35 @@
+{% extends "base/base.html" %}
+{% block title %} {{ tag }} {% endblock %}
+{% block styles %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<div class="page">
+    <section id="content" class="page-content">
+        {% if tag == 'all' or (tag|length)==0 %}
+        <h2>所有标签</h2>
+        <section class="group-tags">
+                    <ul class="tag-box">
+                        {% for (name,count) in tagdict.items() %}
+                        <li><a href="/tag/{{ name }}">{{ name}} <span>{{ count }}</span></a></li>
+                        {% endfor %}
+                    </ul>
+        </section>
+        {% else %}
+        <h2>标签: {{ tag }}[{{ tagdict[tag] }}]</h2>&nbsp;<hr />&nbsp;
+            <section>
+                    <ul class="posts-list">
+                        {% for post in posts %}
+                             {% if tag in post.tags %}
+                                  <li>{{ post.date }}<span> » </span> <a href="{{ url_for('blog.post', name=post.path.replace('posts/', '')) }}" title="{{ post.title }} By {{ post.author }}" target="_blank">{{ post.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                 </section>
+        {% endif %}
+    <!--https://my.oschina.net/u/175377/blog/90364-->
+    </section>
+</div>
+{% endblock %}
+{% block scripts %}
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "admin/base.html" %}
+{% block content %}
+{% include 'admin/nav_cat_bar.html' %}
+<div class="wrapper wrapper-content">
+        <div class="row">
+        <div class="col-sm-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-success pull-right">Users</span>
+                    <h5>用户总数</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins"><a href="{{ url_for('admin.admin_user',name='list') }}">{{ uinfo() | length }}</a></h1>
+                    <small>All user</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-info pull-right">Posts</span>
+                    <h5>文章总数</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins"><a href="#">1</a></h1>
+                    <small>All post</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-primary pull-right">Links</span>
+                    <h5>友情链接</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins"><a href="#"> <span id="online_users">1</span></a></h1>
+{#                    <div class="stat-percent font-bold text-navy">1 <i class="fa fa-level-up"></i></div>#}
+                    <small>Links Status</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-danger pull-right">Connected</span>
+                    <h5>API</h5>
+                </div>
+                <div class="ibox-content">
+                        <h1 class="no-margins"><a href="#"> <span id="online_hosts">1</span></a></h1>
+                    <small>All API</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
